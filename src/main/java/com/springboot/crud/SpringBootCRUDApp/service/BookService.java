@@ -34,18 +34,12 @@ public class BookService {
     }
 
 
-//    public void deleteBook(Long id) {
-//        bookRepo.deleteById(id);
-//    }
-
-
-
     public boolean deleteBook(Long id) {
         bookRepo.deleteById(id);
-        if (bookRepo.findById(id) != null){
-            return false;
+        if (bookRepo.findById(id) != null) {
+            return true;
         }
-        return true;
+        return false;
     }
 
 
