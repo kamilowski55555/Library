@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Add Book</title>
+    <link rel="stylesheet"
+          href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
+    <script
+            src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script
+            src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script
+            src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+
+</head>
+<body>
+<div class="container">
+    <h1 class="p-3">Add Book</h1>
+
+    <form th:action="@{/saveBook}" th:object="${bk}" method="post">
+        <div class="row">
+            <div class="form-group col-md-12">
+                <label class="col-md-3">Book Name</label>
+                <div class ="col-md-6">
+                    <input type="text" th:field="*{name}" class="form-control input-sm" required="required">
+                </div>
+            </div>
+        </div>
+
+
+
+        <div class="row">
+            <div class="form-group col-md-12">
+                <label class="col-md-3">Author</label>
+                <div class ="col-md-6">
+                    <input type="text" th:field="*{author}" class="form-control input-sm" required="required">
+                </div>
+            </div>
+        </div>
+
+        <div class="row p-2">
+            <div class="col-md-2">
+                <button class="btn btn-success">Create</button>
+            </div>
+        </div>
+
+
+
+
+    </form>
+</div>
+
+
+</body>
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>View Book</title>
+  <link rel="stylesheet"
+        href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
+  <script
+          src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script
+          src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <script
+          src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+
+  <style>
+    a {
+      color:white;
+      text-decoration: none;
+    }
+    a:hover {
+      color:white;
+      text-decoration: none;
+    }
+
+  </style>
+</head>
+<body>
+    <div class="container">
+      <h1 class="p-3">Book List</h1>
+
+      <table class="table table-bordered">
+        <tr>
+          <th>Id</th>
+          <th>Name</th>
+          <th>Author</th>
+          <th>Edit</th>
+          <th>Delete</th>
+        </tr>
+
+       <tr th:each="book : ${bkList}">
+         <td th:text="${book.id}"></td>
+         <td th:text="${book.name}"></td>
+         <td th:text="${book.author}"></td>
+         <td>
+           <button class="btn btn-success"><a th:href="@{/editBook/{id}(id=${book.id})}">Edit</a></button>
+         </td>
+         <td>
+           <button class="btn btn-success"><a th:href="@{/deleteBook/{id}(id=${book.id})}">Delete</a></button>
+         </td>
+
+
+       </tr>
+
+      </table>
+      <button class="btn btn-primary btn-block"><a href="/addBook">Add New Book</a></button>
+    </div>
+
+
+</body>
+</html>
