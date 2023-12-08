@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>View Users</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+</head>
+<body>
+<div class="container">
+    <h1 class="p-3">User List</h1>
+    <a href="/viewLends" class="btn btn-primary mb-3">View Lends</a>
+    <a href="/viewBook" class="btn btn-danger mb-3">View Books</a>
+    <table class="table table-bordered">
+        <thead>
+        <tr>
+            <th>Id</th>
+            <th>Username</th>
+            <th>Email</th>
+            <th>Status</th>
+            <th>Edit</th>
+            <th>Change Status</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="user : ${userList}">
+            <td th:text="${user.userId}"></td>
+            <td th:text="${user.userName}"></td>
+            <td th:text="${user.userEmail}"></td>
+            <td th:text="${user.active ? 'Active' : 'Inactive'}"></td>
+            <td>
+                <a th:href="@{/editUser/{userId}(userId=${user.userId})}" class="btn btn-info">Edit</a>
+            </td>
+            <td>
+                <a th:href="@{/changeUserStatus/{userId}(userId=${user.userId})}" class="btn btn-primary">Change Status</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+    <a class="btn btn-primary" th:href="@{/addUser}">Add New User</a>
+</div>
+</body>
+</html>

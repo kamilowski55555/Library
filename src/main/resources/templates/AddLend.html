@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Add Lend</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+<div class="container">
+  <h1>Add Lend</h1>
+
+  <form th:action="@{/saveLend}" th:object="${lend}" method="post">
+    <!-- Wybór użytkownika -->
+    <div class="form-group">
+      <label for="user">User</label>
+      <select class="form-control" id="user" th:field="*{user}">
+        <option th:each="user : ${users}"
+                th:value="${user.userId}"
+                th:text="${user.userName}">
+        </option>
+      </select>
+    </div>
+
+    <!-- Wybór książki -->
+    <div class="form-group">
+      <label for="book">Book</label>
+      <select class="form-control" id="book" th:field="*{book}">
+        <option th:each="book : ${books}"
+                th:value="${book.id}"
+                th:text="${book.name}">
+        </option>
+      </select>
+    </div>
+
+    <!-- Wybór daty rozpoczęcia -->
+
+
+    <!-- Wybór daty zakończenia -->
+    <div class="form-group">
+      <label for="endDate">End Date</label>
+      <input type="date" class="form-control" id="endDate" th:field="*{endDate}" />
+    </div>
+
+    <button type="submit" class="btn btn-success">Add Lend</button>
+  </form>
+</div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

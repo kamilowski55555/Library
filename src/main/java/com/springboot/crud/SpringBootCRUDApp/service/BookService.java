@@ -32,6 +32,16 @@ public class BookService {
         }
         return false;
     }
+    public void setBookAvailability(long bookId, boolean isAvailable) {
+        Book book = bookRepo.findById(bookId).orElse(null);
+        if (book != null) {
+            book.setAvailable(isAvailable);
+            bookRepo.save(book);
+        }
+    }
+    public List<Book> getAvailableBooks() {
+        return bookRepo.findByIsAvailable(true);
+    }
 
 
     public boolean deleteBook(Long id) {
