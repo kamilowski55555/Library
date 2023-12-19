@@ -43,7 +43,7 @@ public class LendController {
     // Zapis nowego wypożyczenia
     @PostMapping("/saveLend")
     public String saveLend(@ModelAttribute("lend") Lend lend, RedirectAttributes redirectAttributes) {
-        if (lendService.addLend(lend.getUser().getUserId(), lend.getBook().getId(), LocalDate.now(), lend.getEndDate()) != null) {
+        if (lendService.addLend(lend.getUser().getUserId(), lend.getBook().getId(), lend.getStartDate(), lend.getEndDate()) != null) {
             redirectAttributes.addFlashAttribute("message", "Lend added successfully");
         } else {
             redirectAttributes.addFlashAttribute("message", "Failed to add lend");
