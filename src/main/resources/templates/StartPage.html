@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>StartPage</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+  <style>
+    a {
+      color: white;
+      text-decoration: none;
+    }
+    a:hover {
+      color: white;
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+<div class="container text-center">
+  <h1 class="p-3">SimpleLibrary</h1>
+  <div class="d-flex justify-content-center">
+    <a href="/viewLends" class="btn btn-primary mb-3 mr-2">View Lends</a> <!-- Dodano mr-2 -->
+    <a href="/viewUsers" class="btn btn-success mb-3 mx-2">View Users</a> <!-- Dodano mx-2 (margin po obu stronach) -->
+    <a href="/viewBook" class="btn btn-danger mb-3 ml-2">View Book</a> <!-- Dodano ml-2 -->
+  </div>
+</div>
+</div>
+</body>
+</html>
